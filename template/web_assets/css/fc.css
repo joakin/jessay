@@ -1,0 +1,170 @@
+@import url(http://fonts.googleapis.com/css?family=Mako&subset=latin&v2);
+
+body{
+    background-color: #f6f6f6;
+}
+
+body, select, input, textarea, button {
+    font-family:'Mako', sans-serif;
+}
+
+#container{
+    width:1024px;
+    margin:10px auto;
+}
+
+header h1 { font-size:260%; }
+
+header h1 a{
+    color: #3D3D3D;
+    text-shadow: 0px 1px 1px #FCFCFC, 0px 14px 20px rgba(0, 0, 0, 0.1);
+    text-decoration:none;
+}
+header h1 a:hover{
+    text-shadow: 0px 1px 1px #FfFfFf, 0px 14px 20px rgba(0, 0, 0, 0.2);
+    color:#444;
+}
+
+#main{ padding:10px 20px 20px; }
+
+#main {
+    position: relative;
+    border: 1px solid #efefef;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.02) inset;
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.02) inset; 
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.02) inset;
+}
+
+#main:before,
+#main:after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 70%;
+    max-width: 200px; /* avoid rotation causing ugly appearance at large container widths */
+    max-height: 100px; /* avoid rotation causing ugly appearance at large container widths */
+    height: 55%;
+    -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    -webkit-transform: skew(-15deg) rotate(-6deg);
+    -moz-transform: skew(-15deg) rotate(-6deg);
+    -ms-transform: skew(-15deg) rotate(-6deg);
+    -o-transform: skew(-15deg) rotate(-6deg);
+    transform: skew(-15deg) rotate(-6deg);
+}
+
+#main:after {
+    left: auto;
+    right: 10px;
+    -webkit-transform: skew(15deg) rotate(6deg);
+    -moz-transform: skew(15deg) rotate(6deg);
+    -ms-transform: skew(15deg) rotate(6deg);
+    -o-transform: skew(15deg) rotate(6deg);
+    transform: skew(15deg) rotate(6deg);
+}
+
+h1,h2,h3,h4,h5,h6 { text-shadow: 1px 2px 2px #DDD; }
+
+
+
+
+/******** FORMS ********/
+
+#formSample {
+    width: 400px;
+}
+
+/****** END FORMS ******/
+
+/******** LISTS ********/
+
+ul li.category{
+    list-style-type: none;
+}
+ul li.category a{
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px #DDD;
+}
+
+/****** END LISTS ******/
+
+
+
+/******* SAMPLES ******/
+
+#fadeSample,
+#slideSample,
+#customAnimationSample,
+#defaultAnimationSample,
+#stopAnimationSample1,
+#stopAnimationSample2 {
+    width:500px;
+    height:300px;
+    margin: 20px;
+}
+
+#defaultAnimationSample {
+    background-color: #ffeedd;
+}
+#fadeSample {
+    background-color: #ddffdd;
+}
+#slideSample {
+    background-color: #ddddff;
+}
+#customAnimationSample {
+    background-color: #ffdddd;
+}
+#stopAnimationSample1 {
+    background-color: #ffff88;
+}
+#stopAnimationSample2 {
+    background-color: #ddffee;
+}
+
+.samplecols>div{
+    background-color: #ddeeff;
+    text-align:center;
+}
+
+.samplecols>div:nth-child(2n){
+    background-color: #ffeedd;
+}
+
+.sampleccol {
+    background-color: #ddeeff;
+}
+
+.sampleccol:nth-child(2n) {
+    background-color: #e0ffe0;
+}
+
+.sampleBox, .sampleBox2{
+    width:25%;
+    margin-left:37.5%;
+}
+
+#samplePopup .flPopup {
+    margin:30px 40px;
+}
+
+.sampleBox.flWithOverlay{
+    height:200px;
+}
+
+.sampleBox2.flWithOverlay{
+    background-color:#ddeeff;
+}
+
+
+
+
+
+
+
+
+

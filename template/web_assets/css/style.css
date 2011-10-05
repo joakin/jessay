@@ -1,0 +1,1146 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+
+/* =============================================================================
+   HTML5 element display
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio[controls], canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Remove Android and iOS tap highlight color to prevent entire container being highlighted
+ *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+ * 4. Prevent iOS text size adjust on device orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+
+html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+/* 
+ * These selection declarations have to be separate
+ * No text-shadow: twitter.com/miketaylr/status/12228805301
+ * Also: hot pink!
+ */
+
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+a { color: #0D78E3; cursor:pointer; }
+a:visited { color: #0D58D3; }
+a:focus { outline: thin dotted; }
+
+/* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: 0; }
+
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+/* Redeclare monospace font family: en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* Improve readability of pre-formatted text in all browsers */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+
+small { font-size: 85%; }
+
+/* Position subscript and superscript content without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
+
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * Improve image quality when scaled in IE7
+ * code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+
+img { border: 0; -ms-interpolation-mode: bicubic; }
+
+/*
+ * Correct overflow displayed oddly in IE9 
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+
+figure { margin: 0; }
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/* 
+ * 1. Correct color not inheriting in IE6/7/8/9 
+ * 2. Correct alignment displayed oddly in IE6/7 
+ */
+
+legend { border: 0; *margin-left: -7px; padding: 0; }
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label { cursor: pointer; }
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ * 2. Correct inner spacing displayed oddly in IE6/7
+ */
+
+button, input { line-height: normal; *overflow: visible; }
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ */
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+
+/*
+ * Consistent box sizing and appearance
+ */
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+
+/* 
+ * Remove inner padding and border in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ 
+ */
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/* Remove default vertical scrollbar in IE6/7/8/9 */
+textarea { overflow: auto; vertical-align: top; }
+
+/* Colors for form validity */
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/* =============================================================================
+   Primary styles
+   ========================================================================== */
+
+
+/*
+    // ========================================== \\
+   ||                                              ||
+   ||                   Layout                     ||
+   ||                                              ||
+    \\ ========================================== //
+*/
+
+h1,h2,h3,h4,h5,h6{ padding: 5px; margin:0.1em 0 0.1em;  }
+p{ margin: 0.5em 0; padding: 0.5em 1em; }
+img.left{ margin:10px 20px 10px 5px; }
+img.right{ margin:10px 5px 10px 20px; }
+
+th, td{ padding:0.23em 0.5em; }
+
+/*
+ * List
+ */
+
+ul{ margin-top: 10px; margin-bottom: 10px; }
+
+/*
+ * Inline list
+ */
+
+ul.flInlineList {
+    margin:0;
+    padding:0px;
+    list-style-type:none;
+    overflow:hidden;
+}
+
+ul.flInlineList li {
+    margin:0;
+    float:left;
+}
+
+ul.flInlineList li>* {
+    display:inline-block;
+    padding:0.23em 0.7em;
+}
+
+/*
+ * Form stuff
+ */
+
+.flForm {
+    display:block;
+    overflow:hidden;
+    padding:10px;
+}
+
+.flForm fieldset {
+    padding:5px 10px;
+}
+
+.flForm fieldset legend{
+    margin:0 5px;
+    padding:0 5px;
+}
+
+.flForm .flFormRow {
+    overflow:hidden;
+    margin: 0 0 8px;
+}
+
+.flForm .flLabel{
+    float:left;
+    width:40%;
+    padding:0.24em 1.5%;
+    text-align:right;
+}
+.flForm label[for]{
+    cursor:pointer;
+}
+
+.flForm .flField{
+    padding:0.23em 1% 0.23em 2%;
+    display:block;
+    float:left;
+    width:53.9%;
+}
+
+.flForm .flLabel,
+.flForm .flField{
+    line-height: 1.5em;
+}
+
+.flForm .flField label { margin:0 5px 0 0; }
+
+.flForm .actButtons{
+    margin:5px 0;
+    padding: 0.25em 2px;
+    overflow:hidden;
+}
+
+.flForm .actButtons input[type=submit]{ float:right;margin-right:0px; }
+.flForm .actButtons input[type=reset]{ float:left;margin-left:0px; }
+
+
+/*
+ * Tabs stuff
+ */
+
+.flTabs {
+}
+
+.flTabs>ul {
+    list-style-type:none;
+    margin:5px 5px 0;
+    padding:0;
+}
+
+.flTabs>ul>li, .flTabs>ul>li>a {
+    margin:0;
+    padding:0;
+    display:inline-block;
+}
+
+.flTabs>ul>li>a {
+    padding:0.25em 0.7em;
+    margin:0 2px;
+}
+
+.flTabs>ul>li>a.active {
+    position:relative;
+    z-index:2;
+}
+
+.flTabContent {
+    display:none;
+    padding:10px;
+    position:relative;
+    z-index:1;
+}
+.flTabContent.active {
+    display:block;
+}
+
+/*
+ * Columns stuff
+ */
+
+.fl2lcols,
+.fl3lcols,
+.fl4lcols,
+.fl5lcols,
+.fl6lcols,
+.fl7lcols,
+.fl8lcols,
+.fl9lcols,
+.fl10lcols {
+    overflow: hidden;
+}
+
+.fl2lcols>div,
+.fl3lcols>div,
+.fl4lcols>div,
+.fl5lcols>div,
+.fl6lcols>div,
+.fl7lcols>div,
+.fl8lcols>div,
+.fl9lcols>div,
+.fl10lcols>div {
+    float:left;
+}
+
+.fl2lcols>div { width: 49.99%; }
+.fl3lcols>div { width: 33.32%; }
+.fl4lcols>div { width: 24.99%; }
+.fl5lcols>div { width: 19.99%; }
+.fl6lcols>div { width: 16.65%; }
+.fl7lcols>div { width: 14.28%; }
+.fl8lcols>div { width: 12.49%; }
+.fl9lcols>div { width: 11.11%; }
+.fl10lcols>div { width: 10%; }
+
+
+.fl2ccols,
+.fl3ccols,
+.fl4ccols,
+.fl5ccols,
+.fl6ccols,
+.fl7ccols,
+.fl8ccols,
+.fl9ccols,
+.fl10ccols {
+    -webkit-column-gap: 15px; /* Saf3, Chrome*/
+    -moz-column-gap: 15px; /* FF3.5+ */
+    column-gap: 15px; /* Opera 11+*/
+}
+
+.fl2ccols {
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+}
+
+.fl3ccols {
+  -webkit-column-count: 3;
+     -moz-column-count: 3;
+          column-count: 3;
+}
+
+.fl4ccols {
+  -webkit-column-count: 4;
+     -moz-column-count: 4;
+          column-count: 4;
+}
+
+.fl5ccols {
+  -webkit-column-count: 5;
+     -moz-column-count: 5;
+          column-count: 5;
+}
+
+.fl6ccols {
+  -webkit-column-count: 6;
+     -moz-column-count: 6;
+          column-count: 6;
+}
+
+.fl7ccols {
+  -webkit-column-count: 7;
+     -moz-column-count: 7;
+          column-count: 7;
+}
+
+.fl8ccols {
+  -webkit-column-count: 8;
+     -moz-column-count: 8;
+          column-count: 8;
+}
+
+.fl9ccols {
+  -webkit-column-count: 9;
+     -moz-column-count: 9;
+          column-count: 9;
+}
+
+.fl10ccols  {
+  -webkit-column-count: 10;
+     -moz-column-count: 10;
+          column-count: 10;
+}
+
+
+/*
+ * Buttons stuff
+ */
+
+.flPager>ul a,
+input[type=reset],
+input[type=submit],
+input[type=button],
+button,
+a.flButton,
+.flCAButton {
+    display:inline-block;
+    padding: 0.23em 0.6em;
+    margin:0 2px;
+}
+
+.flPager>ul a:hover,
+input[type=reset]:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+button:hover,
+a.flButton:hover,
+.flCAButton:hover {
+}
+
+/* 
+ * Boxes stuff
+ */
+
+.flBox {
+    
+}
+
+.flModalBox {
+
+}
+
+/*
+ * Toolbar stuff
+ */
+
+.flToolbar {
+    overflow:hidden;
+}
+.flToolbar>* {
+    float:left;
+}
+
+/*
+ * Pager stuff
+ */
+
+.flPager { overflow:hidden; }
+.flPager>* { float:left; margin:0 0.6em; }
+.flPager>ul span, 
+.flPager>ul a { display:inline-block; padding:0.22em 0.4em; margin:0 0.1em; } 
+
+/*
+ * Breadcrumbs
+ */
+
+.flBreadcrumbs { overflow:hidden; }
+.flBreadcrumbs>* {
+    float:left;
+    margin-right: 0.6em !important;
+}
+
+.flBreadcrumbsList {
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    margin-top:1px;
+    list-style-type:none;
+}
+
+.flBreadcrumbsList>li {
+    float:left;
+    position:relative;
+}
+.flBreadcrumbsList>li>a {
+    display:inline-block;
+    padding: 0.23em 0.6em 0.23em 55px;
+    position:relative;
+}
+
+.flBreadcrumbsList>li:first-child a { padding-left:1.2em; }
+
+
+/*
+ * Information View
+ */
+
+.flInfoView {
+    display:block;
+    overflow:hidden;
+    padding:10px;
+}
+
+.flInfoView>div {
+    overflow:hidden;
+}
+
+.flInfoView>div>.flLabel {
+    float:left;
+    width:40%;
+    padding:0.6em 1.5%;
+    text-align:right;
+}
+
+.flInfoView>div>.flField {
+    padding:0.6em 1% 0.6em 2%;
+    display:block;
+    float:left;
+    width:53.9%;
+}
+
+/*
+ * Rows stuff
+ */
+
+.flRows {
+    display:block;
+    overflow:hidden;
+    position:relative;
+}
+
+.flRows>* {
+    display:block;
+    overflow:hidden;
+    position:relative;
+}
+
+/*
+ * Popup
+ */
+
+.flPopup {
+    position:relative;
+}
+
+.flUpArrow:after,
+.flDownArrow:after,
+.flRightArrow:after,
+.flLeftArrow:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    z-index: 2;
+    position: absolute;
+}
+
+.flUpArrow:after {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 10px solid #f5f5f5;
+    left: 25%;
+    margin-left: -7px;
+    top: -10px;
+}
+.flDownArrow:after {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #f5f5f5;
+    left: 25%;
+    margin-left: -7px;
+    bottom: -10px;
+}
+.flRightArrow:after {
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid #f5f5f5;
+    top: 50%;
+    margin-top: -7px;
+    right: -10px;
+}
+.flLeftArrow:after {
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 10px solid #f5f5f5;
+    top: 50%;
+    margin-top: -7px;
+    left: -10px;
+}
+
+
+/*
+ * Loading overlay
+ */
+
+.flWithOverlay {
+    position:relative;
+}
+.flOverlay {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: white url(../images/loading.gif) 50% 50% no-repeat;
+    opacity:0.8;
+}
+
+
+/*
+    // ========================================== \\
+   ||                                              ||
+   ||                   Fonts                      ||
+   ||                                              ||
+    \\ ========================================== //
+*/
+
+body, select, input, textarea, button {
+    font-family:Verdana, sans-serif;
+    font-size:14px;
+    font-weight:normal;
+    text-shadow:0px 0px 1px rgba(255, 255, 255, 0.1);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight:bold;
+}
+
+h1{ font-size:3.42em; }
+h2{ font-size:2.57em; }
+h3{ font-size:1.71em; }
+h4{ font-size:1.5em; }
+h5{ font-size:1.28em; }
+h6{ font-size:1.14em; }
+
+p{ line-height:1.4em; }
+
+.flForm fieldset legend{ font-size:140%; }
+
+/*
+    // ========================================== \\
+   ||                                              ||
+   ||                   Colors                     ||
+   ||                                              ||
+    \\ ========================================== //
+*/
+
+/*
+ * Headers stuff
+ */
+
+h1,h2,h3,h4,h5,h6{
+     -moz-border-radius: 4px; /* FF1-3.6 */
+  -webkit-border-radius: 4px; /* Saf3-4, iOS 1-3.2, Android <1.6 */
+          border-radius: 4px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+}
+
+h1.lightStyle,
+h2.lightStyle,
+h3.lightStyle,
+h4.lightStyle,
+h5.lightStyle,
+h6.lightStyle {
+    color:#ccc;
+    text-shadow:none;
+}
+
+.flSectionHeader {
+    color:#444;
+    background-color:#E6E6E6;
+}
+.flSectionHeader.lightStyle {
+    color:#B3B3B3;
+    background-color:#F5F5F5;
+}
+
+.flContentHeader {
+    border-bottom: 0.21em solid #E6E6E6;
+}
+.flContentHeader.lightStyle {
+    color:#666;
+    border-bottom: 0.21em solid #F5F5F5;
+}
+
+/*
+ * Code stuff
+ */
+
+pre{ 
+    background-color: #444;
+    color: #F5F5F5;
+     -moz-box-shadow: 0 0 20px #111 inset; /* FF3.5+ */
+  -webkit-box-shadow: 0 0 20px #111 inset; /* Saf3.0+, Chrome */
+          box-shadow: 0 0 20px #111 inset; /* Opera 10.5, IE9, Chrome 10+ */
+}
+
+/* 
+ * Tables stuff
+ */
+
+th{ background-color:#eee; }
+td{ border:1px solid #eee; }
+
+/*
+ * Forms
+ */
+
+.flForm div .flLabel{
+    background-color:#f8f8f8;
+}
+
+.flForm fieldset {
+    border:2px solid #eee;
+}
+
+/*
+ * List of links
+ */
+
+ul ul{
+}
+
+li.category a,
+li.category a:hover{
+    color:#444;
+    font-weight:bold;
+}
+
+/*
+ * Inline list
+ */
+
+ul.flInlineList {
+}
+
+/*
+ * Tabs stuff
+ */
+
+.flTabs>ul>li>a {
+    background-color:#eee;
+    border:1px solid #ddd;
+    color:#666;
+     -moz-border-radius: 4px 4px 0 0; /* FF1-3.6 */
+  -webkit-border-radius: 4px 4px 0 0; /* Saf3-4, iOS 1-3.2, Android <1.6 */
+          border-radius: 4px 4px 0 0; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+}
+
+.flTabs>ul>li>a.active,
+.flTabs>ul>li>a:hover {
+    background-color:#fff;
+    color:#222;
+
+    border-bottom-color: white;
+    top: 1px;
+}
+
+.flTabContent {
+     -moz-box-shadow: 0px 1px 6px #ddd, 1px 1px 0px #ddd, -1px 1px 0px #ddd; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0px 1px 6px #ddd, 1px 1px 0px #ddd, -1px 1px 0px #ddd; /* Saf3.0+, Chrome */
+          box-shadow: 0px 1px 6px #ddd, 1px 1px 0px #ddd, -1px 1px 0px #ddd; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+}
+
+
+/*
+ * Buttons stuff
+ */
+
+.flPager>ul span, 
+.flPager>ul a,
+input[type=reset],
+input[type=submit],
+input[type=button],
+button,
+a.flButton,
+.flCAButton {
+    background-color: #eee;
+    border: 1px solid #ddd;
+     -moz-border-radius: 4px; /* FF1-3.6 */
+  -webkit-border-radius: 4px; /* Saf3-4, iOS 1-3.2, Android <1.6 */
+          border-radius: 4px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+    
+     -moz-box-shadow: 0 -1px 0 rgba(255,255,255,0.5) inset; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0 -1px 0 rgba(255,255,255,0.5) inset; /* Saf3.0+, Chrome */
+          box-shadow: 0 -1px 0 rgba(255,255,255,0.5) inset; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+    
+    color: #222;
+    text-decoration:none;
+
+    text-shadow: 0 1px 0px rgba(255,255,255,0.8);
+}
+
+.flPager>ul a:hover,
+input[type=reset]:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+button:hover,
+a.flButton:hover,
+.flCAButton:hover {
+
+    background-color: #f0f0f0;    
+
+     -moz-box-shadow: 0 0 20px rgba(255,255,255,0.7) inset,0 -1px 0 rgba(255,255,255,0.5) inset; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0 0 20px rgba(255,255,255,0.7) inset,0 -1px 0 rgba(255,255,255,0.5) inset; /* Saf3.0+, Chrome */
+          box-shadow: 0 0 20px rgba(255,255,255,0.7) inset,0 -1px 0 rgba(255,255,255,0.5) inset; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+}
+
+input[type=submit],
+input[type=button].flCAButton,
+button.flCAButton,
+a.flCAButton {
+    background-color: #444;
+    border: 1px solid #111;
+    
+     -moz-box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset; /* Saf3.0+, Chrome */
+          box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+    
+    color: #eee;
+    text-decoration:none;
+
+    text-shadow: 0 1px 0px #111;
+}
+
+input[type=submit]:hover,
+input[type=button].flCAButton:hover, 
+button.flCAButton:hover,
+a.flCAButton:hover {
+
+    color: #fff;
+    background-color:#444;
+
+     -moz-box-shadow: 0 0 15px rgba(255,255,255,0.2) inset,0 -1px 0 rgba(255,255,255,0.4) inset; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0 0 15px rgba(255,255,255,0.2) inset,0 -1px 0 rgba(255,255,255,0.4) inset; /* Saf3.0+, Chrome */
+          box-shadow: 0 0 15px rgba(255,255,255,0.2) inset,0 -1px 0 rgba(255,255,255,0.4) inset; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+}
+
+/* 
+ * Boxes stuff
+ */
+
+.flBox {
+    background-color:#eee;
+    border: 1px solid #ddd;
+     -moz-border-radius: 4px; /* FF1-3.6 */
+  -webkit-border-radius: 4px; /* Saf3-4, iOS 1-3.2, Android <1.6 */
+          border-radius: 4px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+}
+
+.flModalBox {
+
+     -moz-box-shadow: 0px 1px 3px #888, 1px 1px 1px #ddd, -1px 1px 1px #ddd; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0px 1px 3px #888, 1px 1px 1px #ddd, -1px 1px 1px #ddd; /* Saf3.0+, Chrome */
+          box-shadow: 0px 1px 3px #888, 1px 1px 1px #ddd, -1px 1px 1px #ddd; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+}
+
+/*
+ * Toolbar stuff
+ */
+
+.flToolbar.flStyled, .flToolbar.flAltStyle {
+    background-color: #eee;
+    border: 1px solid #ddd;
+     -moz-border-radius: 4px; /* FF1-3.6 */
+  -webkit-border-radius: 4px; /* Saf3-4, iOS 1-3.2, Android <1.6 */
+          border-radius: 4px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+    
+     -moz-box-shadow: 0 -1px 0 rgba(255,255,255,0.5) inset; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0 -1px 0 rgba(255,255,255,0.5) inset; /* Saf3.0+, Chrome */
+          box-shadow: 0 -1px 0 rgba(255,255,255,0.5) inset; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+    
+    color: #222;
+    text-decoration:none;
+
+    text-shadow: 0 1px 0px rgba(255,255,255,0.8);
+}
+
+.flToolbar.flAltStyle {
+    background-color: #444;
+    border: 1px solid #111;
+    
+     -moz-box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset; /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset; /* Saf3.0+, Chrome */
+          box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset; /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+    
+    color: #eee;
+    text-decoration:none;
+
+    text-shadow: 0 1px 0px #111;
+}
+.flToolbar.flAltStyle a, .flToolbar.flAltStyle a:visited {
+    color: #eee;
+    text-decoration:none;
+}
+
+.flToolbar ul.flInlineList {
+}
+
+/*
+ * Pager
+ */
+
+
+
+/*
+ * Breadcrumbs
+ */
+
+.flBreadcrumbsList>li>a { 
+    background-color:#eee;
+    text-shadow:0 1px 0px white;
+    text-decoration:none;
+    color: #444;
+}
+
+.flBreadcrumbsList>li:first-child>a { 
+     -moz-border-radius: 4px 0 0 4px; /* FF1-3.6 */
+  -webkit-border-radius: 4px 0 0 4px; /* Saf3-4, iOS 1-3.2, Android <1.6 */
+          border-radius: 4px 0 0 4px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+}
+.flBreadcrumbsList>li:last-child>a { 
+    background-color:transparent;
+     -moz-border-radius: 0 4px 4px 0; /* FF1-3.6 */
+  -webkit-border-radius: 0 4px 4px 0; /* Saf3-4, iOS 1-3.2, Android <1.6 */
+          border-radius: 0 4px 4px 0; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+}
+
+.flBreadcrumbsList>li>a:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid #eee;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 100%;
+    z-index: 2;
+}
+.flBreadcrumbsList>li>a:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid #ccc;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 2px;
+    left: 100%;
+    z-index: 1;
+}
+
+.flBreadcrumbsList>li>a:hover {
+    background-color: #f5f5f5;
+}
+
+.flBreadcrumbsList>li>a:hover:after {
+    border-left: 30px solid #f5f5f5;
+}
+
+/*
+ * Information view
+ */
+
+
+.flInfoView>div>.flLabel {
+    color:#ccc;
+    font-weight:bold;
+}
+
+.flInfoView>div>.flField {
+}
+
+/*
+ * Rows stuff
+ */
+
+.flRows {
+}
+
+.flRows>* {
+}
+
+.flRows>:nth-child(2n){
+    background-color:#f3f3f3;
+}
+
+/*
+ * Popup
+ */
+
+.flPopup {
+    background-color:#f5f5f5;
+
+     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* FF3.5 - 3.6 */
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Saf3.0+, Chrome */
+          box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Opera 10.5, IE9, FF4+, Chrome 10+ */
+    
+}
+
+
+
+/* =============================================================================
+   Non-semantic helper classes
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/*
+    // ========================================== \\
+   ||                                              ||
+   ||               Utility classes                ||
+   ||                                              ||
+    \\ ========================================== //
+*/
+
+.left{ float:left; }
+.right{ float:right; }
+.clear{ clear:both; }
+.text-left{ text-align:left; }
+.text-right{ text-align:right; }
+.text-small{ font-size:70%; }
+.text-big{ font-size:130%; }
+
+.slim{ padding: 0; margin: 0; }
+.slim-p{ padding: 0; }
+.slim-m{ margin: 0; }
+
+.flWithSeparator>* {
+    border-right:1px solid rgba(0,0,0,0.2);
+    border-left:1px solid rgba(255,255,255,0.2);
+}
+.flWithSeparator>:first-child { border-left:none; }
+.flWithSeparator>:last-child { border-right:none; }
+.flAlignLeft { float:left; }
+.flAlignRight { float:right; }
+
+/* =============================================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+}
+
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
+
+}
+
+
+/* =============================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+

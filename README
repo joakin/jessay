@@ -1,0 +1,20 @@
+jessay
+
+This is a essay compilation engine.
+
+You write in the essays folder, and this generates the website for you.
+
+/Markdown.pl
+    Perl script for translating the markdown files.
+
+/generate.py
+    Python script that generates the web
+
+/template
+    Folder with the Sample template for the essays
+
+/lib
+    Library of essays
+
+/web
+    Where the wiki is published. Visit /web/main/index.html
