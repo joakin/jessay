@@ -1,45 +1,59 @@
 #! /usr/bin/env python
 
 import os
+import posixpath
 import shutil
 import re
 import subprocess
 import time
+from ConfigParser import ConfigParser
 
-DATE_FORMAT = '%Y/%m/%d'
-#Stuff directory
-cdir = 'lib'
-fileext='text'
+propertiesfile = "jessay.properties"
 
-#Publishing directory
-pdir = 'web'
-
-#Template directory
-tdir = 'template'
-tfile = os.path.join(tdir, 'template.html')
 template = None
 
-#Markdown script
-markdown = 'Markdown.pl'
+conf = {}
 
 #Index:
 index = []
 
+def read_configuration():
+    cfg = ConfigParser()
+    cfg.read(propertiesfile)
+
+    conf['dateformat'] = cfg.get('format', 'DATE_FORMAT')
+
+    #Stuff directory
+    conf['essaysdir'] = posixpath.normpath(cfg.get('paths', 'ESSAYS_DIR'))
+    conf['essaysext'] = cfg.get('paths', 'ESSAYS_EXT')
+
+    #Publishing directory
+    conf['publicationdir'] = posixpath.normpath(cfg.get('paths', 'PUBLICATION_DIR'))
+
+    #Template directory
+    conf['templatedir'] = posixpath.normpath(cfg.get('paths', 'TEMPLATE_DIR'))
+    tfilename = cfg.get('paths', 'TEMPLATE_FILE')
+    conf['templatefile'] = posixpath.join(conf['templatedir'], tfilename)
+
+    #Markdown script
+    conf['essayprocessor'] = posixpath.normpath(cfg.get('paths', 'ESSAY_PROCESSOR'))
 
 def navigate_folder(tmppath):
     for item in os.listdir(tmppath):
-        filepath = os.path.join(tmppath, item)
-        if os.path.isfile(filepath) and item.endswith('.text'):
+        filepath = posixpath.join(tmppath, item)
+        if posixpath.isfile(filepath) and item.endswith(conf['essaysext']):
         #Its an item. Lets generate and add to the index
             print 'Generating {0}'.format(filepath)
 
             contents = []
 
-            pip = subprocess.Popen(['perl', markdown, filepath], stdout=subprocess.PIPE)
+            print conf['essayprocessor']
+            print filepath
+            pip = subprocess.Popen(['perl', conf['essayprocessor'], filepath], stdout=subprocess.PIPE)
             filehtml = pip.stdout.read()
             contents.append(filehtml)
 
-            htmlname = item.replace('.text','.html')
+            htmlname = item.replace(conf['essaysext'],'.html')
 
             properties = parse_properties(filepath)
             properties['htmlname'] = htmlname
@@ -53,13 +67,13 @@ def navigate_folder(tmppath):
             page[3] = contentshtml
             pagehtml = ''.join(page)
 
-            with open(os.path.join(pdir, htmlname), 'w') as f:
+            with open(posixpath.join(conf['publicationdir'], htmlname), 'w') as f:
                 f.write(pagehtml)
 
 def parse_properties(path):
-    with open(os.path.join(path), 'r') as f:
+    with open(posixpath.join(path), 'r') as f:
         lines = f.readlines()
-    date = time.strptime(lines[0].strip(), DATE_FORMAT)
+    date = time.strptime(lines[0].strip(), conf['dateformat'])
     title = lines[1].strip()
     return { 'title': title, 'date':date }
 
@@ -80,7 +94,7 @@ def render_index():
     result = []
     for i in range(0, len(index)):
         x = index[i]
-        result.append('<li><a href="' + x['htmlname'] + '">' + x['title'] + ' <span>'+ time.strftime(DATE_FORMAT, x['date']) + '</span></a></li>')
+        result.append('<li><a href="' + x['htmlname'] + '">' + x['title'] + ' <span>'+ time.strftime(conf['dateformat'], x['date']) + '</span></a></li>')
 
 
     html = '<ul>' + ''.join(result) + '</ul>'
@@ -89,32 +103,39 @@ def render_index():
 
 print 'Init generate wiki...'
 
-if os.path.isdir(tdir) and os.path.isfile(tfile):
+print 'Reading configuration'
+if posixpath.isfile(propertiesfile):
+    read_configuration()
+else:
+    print '[ERROR] The configuration file doesnt exist'
+    exit()
+
+if posixpath.isdir(conf['templatedir']) and posixpath.isfile(conf['templatefile']):
     print 'Reading the template...'
-    with open(tfile, 'r') as f:
+    with open(conf['templatefile'], 'r') as f:
         template = f.read()
 else:
     print '[ERROR] The template folder/file doesnt exist'
     exit()
 
-if os.path.isdir(pdir):
+if posixpath.isdir(conf['publicationdir']):
     print 'Cleaning web folder...'
-    shutil.rmtree(pdir)
+    shutil.rmtree(conf['publicationdir'])
 #Copy the data from the template
-shutil.copytree(tdir,pdir)
+shutil.copytree(conf['templatedir'],conf['publicationdir'])
 
 #Generate regex
 retpl = re.compile("\{(%\w+%)\}")
 tplparts = retpl.split(template)
 
 print 'Generating components html...'
-navigate_folder(cdir)
+navigate_folder(conf['essaysdir'])
 
 print 'Generating index ...'
-gindexpath = os.path.join(pdir, 'index.text')
+gindexpath = posixpath.join(conf['publicationdir'], 'index.text')
 contents = []
-if os.path.isfile(gindexpath):
-    pip = subprocess.Popen(['perl', markdown, gindexpath], stdout=subprocess.PIPE)
+if posixpath.isfile(gindexpath):
+    pip = subprocess.Popen(['perl', conf['essayprocessor'], gindexpath], stdout=subprocess.PIPE)
     mainhtml = pip.stdout.read()
     contents.append(mainhtml)
 
@@ -127,7 +148,7 @@ contentshtml = ''.join(contents)
 page[3] = contentshtml
 pagehtml = ''.join(page)
 
-with open(os.path.join(pdir,'index.html'), 'w') as f:
+with open(posixpath.join(conf['publicationdir'],'index.html'), 'w') as f:
     f.write(pagehtml)
 
 
