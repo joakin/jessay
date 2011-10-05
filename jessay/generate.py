@@ -47,8 +47,6 @@ def navigate_folder(tmppath):
 
             contents = []
 
-            print conf['essayprocessor']
-            print filepath
             pip = subprocess.Popen(['perl', conf['essayprocessor'], filepath], stdout=subprocess.PIPE)
             filehtml = pip.stdout.read()
             contents.append(filehtml)
