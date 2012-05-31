@@ -1,6 +1,8 @@
-jessay
 
-This is a essay compilation engine.
+jessay
+======
+
+This is a static web generator.
 
 You write in the essays folder, and this generates the website for you.
 
