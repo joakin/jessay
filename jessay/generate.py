@@ -277,7 +277,7 @@ def main(args):
         navigate_articles(conf['ARTICLES_DIR'], '', [])
 
         print 'Generating index ...'
-        gindexpath = posixpath.join(conf['PUBLICATION_DIR'], 'index.text')
+        gindexpath = posixpath.join(conf['PUBLICATION_DIR'], 'index'+conf['ARTICLES_EXT'])
         contents = []
         if posixpath.isfile(gindexpath):
             pip = subprocess.Popen(['perl', conf['ESSAY_PROCESSOR'], gindexpath], stdout=subprocess.PIPE)
