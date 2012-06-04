@@ -23,6 +23,9 @@ articles_index = {}
 
 IGNORE_PATTERNS = ('*.pyc','CVS','^.git','tmp','.svn')
 
+def exclude_item(item):
+    return item in IGNORE_PATTERNS
+
 def set_tpl(template_file):
     global template
     template = Template(template_file)
@@ -57,6 +60,8 @@ def read_configuration():
 
 def navigate_essays(tmppath):
     for item in os.listdir(tmppath):
+        if exclude_item(item):
+            continue
         filepath = posixpath.join(tmppath, item)
         if posixpath.isfile(filepath) and item.endswith(conf['ESSAYS_EXT']):
             #Its an item. Lets generate and add to the index
@@ -160,6 +165,8 @@ def deal_article_file(name, categories, path):
 
 def navigate_articles(tmppath, name, categories):
     for sub in os.listdir(tmppath):
+        if exclude_item(sub):
+            continue
         spath = posixpath.join(tmppath, sub)
         if os.path.isdir(spath):
             deal_article_category(sub, categories[:], tmppath)
