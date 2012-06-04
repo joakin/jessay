@@ -175,8 +175,8 @@ def navigate_articles(tmppath, name, categories):
 
 def parse_article_properties(name):
     file_vars = name.split('.')
-    folder_vars = file_vars[0].split('_')
-    title = folder_vars[1]
+    folder_vars = file_vars[0].split('_', 1)
+    title = folder_vars[1].replace('_', ' ').capitalize()
     order = int(float(folder_vars[0]))
     extension = file_vars[1] if len(file_vars)>1 else None
     return { 'title': title, 'order':order, 'extension': extension}
